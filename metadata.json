@@ -1,0 +1,8 @@
+{
+  "name": "Agrobritoo - Excelência no Campo",
+  "description": "Uma plataforma de mentoria e cursos focada em unir a ciência acadêmica à prática do campo para produtores rurais e estudantes de zootecnia/veterinária.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
