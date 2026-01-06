@@ -10,16 +10,16 @@ import AIAssistant from './components/AIAssistant';
 import MentorshipView from './views/MentorshipView';
 import CheckoutView from './views/CheckoutView';
 import LoginView from './views/LoginView';
-import DashboardView from './views/DashboardView'; // Novo import
-import { SessionContextProvider, useSession } from './components/SessionContextProvider'; // Novo import
+import DashboardView from './src/views/DashboardView'; // Caminho corrigido
+import { SessionContextProvider, useSession } from './components/SessionContextProvider';
 
-export type ViewState = 'home' | 'mentorship' | 'checkout' | 'login' | 'dashboard'; // Adicionado 'dashboard'
+export type ViewState = 'home' | 'mentorship' | 'checkout' | 'login' | 'dashboard';
 
 const AppContent: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [currentView, setCurrentView] = useState<ViewState>('home');
   const [selectedItem, setSelectedItem] = useState<any>(null);
-  const { session } = useSession(); // Usar o hook de sessão
+  const { session } = useSession();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,11 +30,9 @@ const AppContent: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Redirecionar para o dashboard se autenticado e na página de login
     if (session && currentView === 'login') {
       setCurrentView('dashboard');
     } else if (!session && currentView === 'dashboard') {
-      // Redirecionar para home ou login se desautenticado e no dashboard
       setCurrentView('home');
     }
   }, [session, currentView]);
@@ -55,7 +53,6 @@ const AppContent: React.FC = () => {
         return <LoginView onBack={() => navigateTo('home')} />;
       case 'dashboard':
         if (!session) {
-          // Should not happen due to useEffect, but as a fallback
           return <LoginView onBack={() => navigateTo('home')} />;
         }
         return <DashboardView onBack={() => navigateTo('home')} />;
