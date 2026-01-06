@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 interface MentorshipViewProps {
@@ -82,11 +81,14 @@ const MentorshipView: React.FC<MentorshipViewProps> = ({ onBack }) => {
                 <input required type="tel" className="w-full bg-white/5 border border-border-dark rounded-xl px-5 py-3 text-white focus:border-primary outline-none transition-all" placeholder="(00) 00000-0000" />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-text-muted">Tamanho do Rebanho</label>
+                <label className="text-xs font-bold uppercase tracking-widest text-text-muted">Tamanho do Rebanho/Animais</label>
                 <select className="w-full bg-white/5 border border-border-dark rounded-xl px-5 py-3 text-white focus:border-primary outline-none transition-all">
-                  <option className="bg-bg-dark">Até 100 cabeças</option>
-                  <option className="bg-bg-dark">101 a 500 cabeças</option>
-                  <option className="bg-bg-dark">Acima de 500 cabeças</option>
+                  <option className="bg-bg-dark">Selecione uma opção</option>
+                  <option className="bg-bg-dark">de 10 a 20 animais</option>
+                  <option className="bg-bg-dark">20 a 50 animais</option>
+                  <option className="bg-bg-dark">50 a 100 animais</option>
+                  <option className="bg-bg-dark">101 a 500 animais</option>
+                  <option className="bg-bg-dark">Acima de 500 animais</option>
                   <option className="bg-bg-dark">Sou estudante/consultor</option>
                 </select>
               </div>
