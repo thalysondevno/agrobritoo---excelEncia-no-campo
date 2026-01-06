@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useSession } from '../components/SessionContextProvider';
-import { supabase } from '../../integrations/supabase/client'; // Caminho corrigido
+import { supabase } from '../integrations/supabase/client'; // Caminho corrigido
 
 interface DashboardViewProps {
   onBack: () => void;
