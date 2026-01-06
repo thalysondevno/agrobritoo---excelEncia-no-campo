@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { supabase } from '../src/integrations/supabase/client'; // Caminho corrigido
+import { supabase } from '../src/integrations/supabase/client';
 import { useSession } from '../src/components/SessionContextProvider';
 import { ViewState } from '../App';
 
@@ -64,6 +64,7 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
               },
             }}
             theme="dark"
+            view="sign_in"
             localization={{
               variables: {
                 sign_in: {
@@ -73,20 +74,6 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
                   password_input_placeholder: '••••••••',
                   button_label: 'Acessar Plataforma',
                   link_text: 'Já tem uma conta? Faça login',
-                },
-                sign_up: {
-                  email_label: 'Seu e-mail',
-                  password_label: 'Crie uma senha',
-                  email_input_placeholder: 'aluno@agro.com',
-                  password_input_placeholder: '••••••••',
-                  button_label: 'Criar Conta',
-                  link_text: 'Não tem uma conta? Crie uma',
-                },
-                forgotten_password: {
-                  email_label: 'Seu e-mail',
-                  password_reset_button_label: 'Enviar link de recuperação',
-                  link_text: 'Esqueceu sua senha?',
-                  email_input_placeholder: 'aluno@agro.com',
                 },
                 update_password: {
                   password_label: 'Nova senha',
@@ -102,10 +89,6 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
             }}
           />
         </div>
-
-        <p className="text-center mt-8 text-sm text-text-muted">
-          Ainda não é aluno? <button onClick={onBack} className="text-primary font-bold hover:underline">Ver cursos disponíveis</button>
-        </p>
       </div>
     </div>
   );
