@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const ProblemSection: React.FC = () => {
@@ -18,14 +17,15 @@ const ProblemSection: React.FC = () => {
           
           <div className="space-y-6">
             <p className="text-xl text-text-muted border-l-4 border-primary/50 pl-6 py-2 leading-relaxed">
-              Falhas na nutrição ou sanidade custam caro. O Agrobritoo traz a segurança técnica da Zootecnia traduzida em guias práticos para sua tomada de decisão. Pare de perder dinheiro por falta de conhecimento técnico.
+              Como profissional em formação e atuação nas áreas de Zootecnia e Medicina Veterinária, eu integro ferramentas técnicas e práticas de campo, oferecendo conteúdo e orientação que realmente funcionam para produtores e profissionais do agro — seja em NUTRIÇÃO, MANEJO, SANIDADE OU GESTÃO DA PRODUÇÃO ANIMAL.
             </p>
             
             <ul className="space-y-4">
               {[
-                'Segurança na tomada de decisão',
-                'Técnicas validadas cientificamente',
-                'Linguagem acessível para o produtor'
+                'Conteúdo especializado com foco prático: técnicas de manejo, nutrição, sanidade e produção animal.',
+                'Cursos e treinamentos voltados para aplicação real no campo.',
+                'Ebooks e materiais técnicos que ajudam na tomada de decisões no dia a dia da produção.',
+                'Blog com dicas e experiências reais, conectando teoria e prática agrícola e pecuária.'
               ].map((item, idx) => (
                 <li key={idx} className="flex items-center gap-3 text-white font-medium">
                   <span className="material-symbols-outlined text-primary">check_circle</span>
