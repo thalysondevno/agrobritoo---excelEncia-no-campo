@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface HeroProps {
@@ -34,7 +33,7 @@ const Hero: React.FC<HeroProps> = ({ onAction, onSeeCourses }) => {
         </h1>
         
         <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-          Democratizamos o conhecimento técnico. Una a ciência acadêmica à lida diária do campo para impulsionar sua produção animal.
+          Nossa missão é democratizar o conhecimento técnico para o agronegócio e para o cuidado animal, traduzindo conceitos científicos em práticas de campo que gerem resultados consistentes — para produtores, profissionais e estudantes.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
