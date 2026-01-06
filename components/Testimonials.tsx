@@ -50,7 +50,7 @@ const Testimonials: React.FC = () => {
               </div>
               <p className="text-white/80 italic mb-8 leading-relaxed">"{t.text}"</p>
               <div className="flex items-center gap-4">
-                <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full border-2 border-primary/20" />
+                {/* Avatar removed as requested */}
                 <div>
                   <h4 className="text-white font-bold text-sm">{t.name}</h4>
                   <p className="text-text-muted text-xs uppercase tracking-widest font-bold">{t.role}</p>
