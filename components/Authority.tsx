@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 const zootecniaAreas = [
@@ -53,11 +52,12 @@ const Authority: React.FC = () => {
               </div>
               
               <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
-                Domine todas as áreas da <span className="text-primary">Zootecnia.</span>
+                Agrobritoo — Da Teoria à Prática no Agro
               </h2>
               
               <p className="text-xl text-text-muted leading-relaxed">
-                A Agrobritoo não foca apenas em uma solução. Nós entregamos a visão 360º necessária para o sucesso no Agro. Traduzimos a ciência de cada área para a prática imediata no seu curral ou na sua carreira.
+                Somos uma plataforma de conteúdo e soluções para quem vive e ama o campo. Nosso objetivo é transformar o conhecimento técnico em resultados reais, integrando ciência, manejo, saúde e produção animal de forma prática e aplicada.
+                Aqui unimos os melhores recursos, dicas, cursos e materiais para melhorar a produção, sanidade e eficiência no agronegócio, independentemente da escala da propriedade ou da experiência do produtor.
               </p>
               
               <div className="grid grid-cols-2 gap-10">
