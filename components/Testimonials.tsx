@@ -1,24 +1,35 @@
-
 import React from 'react';
 
 const testimonials = [
   {
-    name: "João Pereira",
-    role: "Produtor Rural - MS",
-    text: "Com a mentoria do Agrobritoo, consegui reduzir a mortalidade de bezerros em 15% logo no primeiro ciclo. O conhecimento técnico traduzido pra nossa realidade é o diferencial.",
-    avatar: "https://i.pravatar.cc/150?u=1"
+    name: "Carlos Henrique",
+    role: "Produtor Rural – GO",
+    text: "Eu já tinha alguma noção, mas sempre ficava inseguro na hora de aplicar no campo. O material do Agrobritoo ajudou a organizar o raciocínio e evitar erros simples que custam caro. Hoje faço as decisões com muito mais segurança.",
+    avatar: "https://i.pravatar.cc/150?u=carlos"
   },
   {
-    name: "Mariana Silva",
-    role: "Estudante de Veterinária",
-    text: "A faculdade me deu a base, mas o curso de Nutrição Estratégica me deu a confiança para prescrever dietas que realmente funcionam no campo. Vale cada centavo!",
-    avatar: "https://i.pravatar.cc/150?u=2"
+    name: "André Luiz",
+    role: "Técnico Agropecuário – MG",
+    text: "O conteúdo é direto e sem enrolação. Não é coisa de faculdade, é coisa do dia a dia mesmo. Uso bastante como consulta rápida quando surge dúvida no manejo.",
+    avatar: "https://i.pravatar.cc/150?u=andre"
   },
   {
-    name: "Ricardo Mendes",
-    role: "Zootecnista Consultor",
-    text: "Os ebooks são meu guia de bolso. Sempre que surge uma dúvida no manejo de pastagens, recorro ao material. Simples, direto e eficiente.",
-    avatar: "https://i.pravatar.cc/150?u=3"
+    name: "Paula Nogueira",
+    role: "Estudante da área animal",
+    text: "O diferencial pra mim foi a forma de explicar. Dá pra entender e aplicar, mesmo quem ainda está em formação. Já me ajudou muito em estágio e na rotina prática.",
+    avatar: "https://i.pravatar.cc/150?u=paula"
+  },
+  {
+    name: "Rafael Costa",
+    role: "Consultor em Produção Animal",
+    text: "Tem muita informação na internet, mas pouca coisa confiável e prática. No Agrobritoo eu sei que o conteúdo é técnico, mas adaptado pra realidade do campo.",
+    avatar: "https://i.pravatar.cc/150?u=rafael"
+  },
+  {
+    name: "João Victor",
+    role: "Produtor – PI",
+    text: "Uso os ebooks como apoio no trabalho. Não substitui a experiência, mas ajuda demais a evitar decisões erradas e ganhar tempo.",
+    avatar: "https://i.pravatar.cc/150?u=joao"
   }
 ];
 
