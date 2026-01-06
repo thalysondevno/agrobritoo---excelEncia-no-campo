@@ -16,7 +16,7 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
             <img 
               src="https://firebasestorage.googleapis.com/v0/b/excel-insights-n8l3f.firebasestorage.app/o/869x191_branca.png?alt=media&token=443414b4-b7fd-45d6-a441-82d27224ff76" 
               alt="Agrobritoo Logo" 
-              className="h-16 w-auto" 
+              className="h-20 w-auto" 
             />
           </button>
           <h1 className="text-3xl font-black text-white">Área do Aluno</h1>

@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, setView, currentView }) => {
           <img 
             src="https://firebasestorage.googleapis.com/v0/b/excel-insights-n8l3f.firebasestorage.app/o/869x191_branca.png?alt=media&token=443414b4-b7fd-45d6-a441-82d27224ff76" 
             alt="Agrobritoo Logo" 
-            className="h-8 w-auto" 
+            className="h-10 w-auto" 
           />
         </button>
 
