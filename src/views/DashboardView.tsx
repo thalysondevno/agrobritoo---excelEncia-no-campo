@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useSession } from '../components/SessionContextProvider';
-import { supabase } from '../integrations/supabase/client';
+import { supabase } from '../../integrations/supabase/client'; // Caminho corrigido
 
 interface DashboardViewProps {
   onBack: () => void;
@@ -14,7 +14,7 @@ const DashboardView: React.FC<DashboardViewProps> = ({ onBack }) => {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    onBack(); // Redireciona para a home após o logout
+    onBack();
   };
 
   return (

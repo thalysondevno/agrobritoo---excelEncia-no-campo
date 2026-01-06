@@ -3,9 +3,9 @@
 import React, { useEffect } from 'react';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { supabase } from '../integrations/supabase/client';
-import { useSession } from '../components/SessionContextProvider';
-import { ViewState } from '../App'; // Importar ViewState
+import { supabase } from '../src/integrations/supabase/client'; // Caminho corrigido
+import { useSession } from '../src/components/SessionContextProvider';
+import { ViewState } from '../App';
 
 interface LoginViewProps {
   onBack: () => void;
@@ -16,9 +16,6 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
 
   useEffect(() => {
     if (session) {
-      // Redirecionar para o dashboard se já estiver autenticado
-      // onBack() aqui pode ser ajustado para navegar para o dashboard
-      // Por enquanto, vamos apenas voltar para a home, e o App.tsx vai redirecionar para o dashboard
       onBack(); 
     }
   }, [session, onBack]);
@@ -44,29 +41,29 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
         <div className="glass p-10 rounded-[2.5rem] border border-border-dark shadow-2xl space-y-6">
           <Auth
             supabaseClient={supabase}
-            providers={[]} // Array vazio para desabilitar provedores de terceiros como o Google
+            providers={[]}
             appearance={{
               theme: ThemeSupa,
               variables: {
                 default: {
                   colors: {
-                    brand: '#46ec13', // Cor primária do seu tema
-                    brandAccent: '#8fff6b', // Cor de destaque
-                    inputBackground: '#1e271c', // Cor de fundo dos inputs
-                    inputBorder: '#2c3928', // Cor da borda dos inputs
-                    inputPlaceholder: '#a3b99d', // Cor do placeholder
-                    inputText: '#ffffff', // Cor do texto
-                    messageBackground: '#1e271c', // Cor de fundo das mensagens
-                    messageText: '#ffffff', // Cor do texto das mensagens
-                    messageAction: '#46ec13', // Cor da ação da mensagem
-                    dividerBackground: '#2c3928', // Cor do divisor
-                    anchorTextColor: '#46ec13', // Cor do link
-                    anchorTextHoverColor: '#8fff6b', // Cor do link ao passar o mouse
+                    brand: '#46ec13',
+                    brandAccent: '#8fff6b',
+                    inputBackground: '#1e271c',
+                    inputBorder: '#2c3928',
+                    inputPlaceholder: '#a3b99d',
+                    inputText: '#ffffff',
+                    messageBackground: '#1e271c',
+                    messageText: '#ffffff',
+                    messageAction: '#46ec13',
+                    dividerBackground: '#2c3928',
+                    anchorTextColor: '#46ec13',
+                    anchorTextHoverColor: '#8fff6b',
                   },
                 },
               },
             }}
-            theme="dark" // Usar tema escuro para combinar com o design
+            theme="dark"
             localization={{
               variables: {
                 sign_in: {

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { Session } from '@supabase/supabase-js';
-import { supabase } from '../integrations/supabase/client';
+import { supabase } from '../../integrations/supabase/client'; // Caminho corrigido
 
 interface SessionContextType {
   session: Session | null;
