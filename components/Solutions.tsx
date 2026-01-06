@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const solutions = [
@@ -48,7 +47,7 @@ const Solutions: React.FC<SolutionsProps> = ({ onSelect }) => {
             <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">Escolha seu caminho para a <span className="text-primary">excelência.</span></h2>
           </div>
           <p className="text-text-muted max-w-sm">
-            Nossos treinamentos são focados em resultados práticos, eliminando o "juridiquês" acadêmico e focando no que funciona no curral.
+            Aqui você encontra cursos online, ebooks e conteúdos que unem conhecimento técnico e aplicação prática, cobrindo temas como manejo de rebanho, nutrição, sanidade, produtividade e estratégias que transformam o seu trabalho no campo.
           </p>
         </div>
         
