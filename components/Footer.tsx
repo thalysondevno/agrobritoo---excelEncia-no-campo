@@ -18,7 +18,7 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
               <span className="text-white text-xl font-black tracking-tighter">Agrobritoo</span>
             </div>
             <p className="text-text-muted max-w-sm leading-relaxed">
-              AgroBritoo – Educação que gera resultado no campo. Conteúdos técnicos, cursos online, treinamentos e materiais educacionais voltados à zootecnia e medicina veterinária, produção animal e gestão no agronegócio.
+              AgroBritoo – Educação que gera resultado no campo. Conteúdos técnicos, cursos online, treinamentos e materiais educacionais voltados à CIÊNCIA E PRÁTICA ANIMAL e medicina veterinária, produção animal e gestão no agronegócio.
             </p>
             <div className="flex gap-4">
               {['facebook', 'instagram', 'youtube', 'linkedin'].map(social => (

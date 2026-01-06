@@ -13,7 +13,7 @@ const Hero: React.FC<HeroProps> = ({ onAction, onSeeCourses }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-bg-dark/40 via-bg-dark/70 to-bg-dark z-10" />
         <img 
           src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&q=80&w=1920" 
-          alt="Gado bovino em pastagem verde - Zootecnia Agrobritoo" 
+          alt="Gado bovino em pastagem verde - CIÊNCIA E PRÁTICA ANIMAL Agrobritoo" 
           className="w-full h-full object-cover animate-fade-in transition-opacity duration-1000"
         />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full hero-gradient z-0 opacity-60" />
@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ onAction, onSeeCourses }) => {
       <div className="relative z-20 max-w-7xl mx-auto px-6 w-full text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-8 animate-fade-in">
           <span className="material-symbols-outlined !text-sm">verified</span>
-          Zootecnia de Elite
+          CIÊNCIA E PRÁTICA ANIMAL de Elite
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 max-w-5xl mx-auto">

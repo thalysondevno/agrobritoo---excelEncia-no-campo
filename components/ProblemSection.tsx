@@ -17,7 +17,7 @@ const ProblemSection: React.FC = () => {
           
           <div className="space-y-6">
             <p className="text-xl text-text-muted border-l-4 border-primary/50 pl-6 py-2 leading-relaxed">
-              Como profissional em formação e atuação nas áreas de Zootecnia e Medicina Veterinária, eu integro ferramentas técnicas e práticas de campo, oferecendo conteúdo e orientação que realmente funcionam para produtores e profissionais do agro — seja em NUTRIÇÃO, MANEJO, SANIDADE OU GESTÃO DA PRODUÇÃO ANIMAL.
+              Como profissional em formação e atuação nas áreas de CIÊNCIA E PRÁTICA ANIMAL e Medicina Veterinária, eu integro ferramentas técnicas e práticas de campo, oferecendo conteúdo e orientação que realmente funcionam para produtores e profissionais do agro — seja em NUTRIÇÃO, MANEJO, SANIDADE OU GESTÃO DA PRODUÇÃO ANIMAL.
             </p>
             
             <ul className="space-y-4">
