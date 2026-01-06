@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ViewState } from '../App';
 
@@ -19,7 +18,7 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
               <span className="text-white text-xl font-black tracking-tighter">Agrobritoo</span>
             </div>
             <p className="text-text-muted max-w-sm leading-relaxed">
-              Agro com Paixão. Transformando a produção rural através do conhecimento técnico de ponta traduzido para a realidade do produtor.
+              AgroBritoo – Educação que gera resultado no campo. Conteúdos técnicos, cursos online, treinamentos e materiais educacionais voltados à zootecnia e medicina veterinária, produção animal e gestão no agronegócio.
             </p>
             <div className="flex gap-4">
               {['facebook', 'instagram', 'youtube', 'linkedin'].map(social => (
@@ -54,7 +53,7 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
         </div>
         
         <div className="pt-8 border-t border-border-dark flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/20 font-medium">
-          <p>© 2024 Agrobritoo. Todos os direitos reservados.</p>
+          <p>Projeto educacional da DOMINE IMÓVEIS LTDA – CNPJ: 60.084.422/0001-14. Todos os direitos reservados.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary transition-colors">Instagram</a>
             <a href="#" className="hover:text-primary transition-colors">WhatsApp</a>
