@@ -10,8 +10,8 @@ import AIAssistant from './components/AIAssistant';
 import MentorshipView from './views/MentorshipView';
 import CheckoutView from './views/CheckoutView';
 import LoginView from './views/LoginView';
-import DashboardView from './src/views/DashboardView'; // Caminho corrigido
-import { SessionContextProvider, useSession } from './components/SessionContextProvider';
+import DashboardView from './src/views/DashboardView';
+import { SessionContextProvider, useSession } from './src/components/SessionContextProvider'; // Caminho corrigido
 
 export type ViewState = 'home' | 'mentorship' | 'checkout' | 'login' | 'dashboard';
 
