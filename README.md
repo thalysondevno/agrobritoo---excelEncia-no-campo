@@ -18,6 +18,5 @@ View your app in AI Studio: https://ai.studio/apps/drive/1-E16xbNPnX8EzfdXuCpQaK
 2. Set the following environment variables in [.env.local](.env.local):
    - `VITE_SUPABASE_URL`: Sua URL do projeto Supabase (ex: `https://your-project-id.supabase.co`)
    - `VITE_SUPABASE_ANON_KEY`: Sua chave pública (anon key) do Supabase
-   - `GEMINI_API_KEY`: Sua chave da API Gemini
 3. Run the app:
    `npm run dev`

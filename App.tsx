@@ -6,7 +6,6 @@ import Solutions from './components/Solutions';
 import Authority from './components/Authority';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
-import AIAssistant from './components/AIAssistant';
 import MentorshipView from './views/MentorshipView';
 import CheckoutView from './views/CheckoutView';
 import LoginView from './views/LoginView';
@@ -95,8 +94,6 @@ const AppContent: React.FC = () => {
       </main>
 
       {currentView === 'home' && <Footer setView={navigateTo} />}
-      
-      <AIAssistant />
     </div>
   );
 };
