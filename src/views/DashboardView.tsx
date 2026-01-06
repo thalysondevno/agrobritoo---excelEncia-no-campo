@@ -52,7 +52,10 @@ const DashboardView: React.FC<DashboardViewProps> = ({ onBack, navigateTo }) => 
             >
               Criar Novo Curso
             </button>
-            <button className="w-full py-3 glass border-white/10 text-white font-bold rounded-xl hover:bg-white/5 transition-all">
+            <button 
+              onClick={() => navigateTo('coursesList')} {/* Corrigido para navegar para a lista de cursos */}
+              className="w-full py-3 glass border-white/10 text-white font-bold rounded-xl hover:bg-white/5 transition-all"
+            >
               Ver Meus Cursos
             </button>
           </div>
