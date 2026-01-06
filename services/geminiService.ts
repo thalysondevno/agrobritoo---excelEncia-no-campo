@@ -1,8 +1,7 @@
-
 import { GoogleGenAI } from "@google/genai";
 
 // Ensure AI is initialized correctly using the named parameter apiKey
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || '' });
 
 export const getAgroAdvice = async (userQuery: string) => {
   try {
