@@ -3,17 +3,12 @@ import { ViewState } from '../App';
 
 interface HeaderProps {
   scrolled: boolean;
-  setView: (view: ViewState) => void;
+  setView: (view: ViewState, item?: any, blogId?: string) => void;
   currentView: ViewState;
 }
 
 const Header: React.FC<HeaderProps> = ({ scrolled, setView, currentView }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'Cursos', href: '#cursos' },
-    { name: 'Sobre', href: '#sobre' },
-  ];
 
   const handleNav = (view: ViewState) => {
     setView(view);
@@ -53,6 +48,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, setView, currentView }) => {
         <nav className="hidden md:flex items-center gap-10">
           <button onClick={() => handleNav('home')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Início</button>
           <button onClick={() => handleScrollNav('cursos')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Cursos</button>
+          <button onClick={() => handleNav('blogList')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Blog</button> {/* Novo link para o blog */}
           <button onClick={() => handleScrollNav('sobre')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Sobre</button>
           <button 
             onClick={() => handleNav('login')}
@@ -77,6 +73,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, setView, currentView }) => {
       <div className={`fixed inset-0 bg-bg-dark z-50 flex flex-col items-center justify-center gap-8 transition-transform duration-500 md:hidden ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <button onClick={() => handleNav('home')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Início</button>
         <button onClick={() => handleScrollNav('cursos')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Cursos</button>
+        <button onClick={() => handleNav('blogList')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Blog</button> {/* Novo link para o blog */}
         <button onClick={() => handleScrollNav('sobre')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Sobre</button>
         <button 
           onClick={() => handleNav('login')}
