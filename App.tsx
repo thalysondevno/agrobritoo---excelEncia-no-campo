@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -11,13 +10,16 @@ import AIAssistant from './components/AIAssistant';
 import MentorshipView from './views/MentorshipView';
 import CheckoutView from './views/CheckoutView';
 import LoginView from './views/LoginView';
+import DashboardView from './views/DashboardView'; // Novo import
+import { SessionContextProvider, useSession } from './components/SessionContextProvider'; // Novo import
 
-export type ViewState = 'home' | 'mentorship' | 'checkout' | 'login';
+export type ViewState = 'home' | 'mentorship' | 'checkout' | 'login' | 'dashboard'; // Adicionado 'dashboard'
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [currentView, setCurrentView] = useState<ViewState>('home');
   const [selectedItem, setSelectedItem] = useState<any>(null);
+  const { session } = useSession(); // Usar o hook de sessão
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,16 @@ const App: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Redirecionar para o dashboard se autenticado e na página de login
+    if (session && currentView === 'login') {
+      setCurrentView('dashboard');
+    } else if (!session && currentView === 'dashboard') {
+      // Redirecionar para home ou login se desautenticado e no dashboard
+      setCurrentView('home');
+    }
+  }, [session, currentView]);
 
   const navigateTo = (view: ViewState, item?: any) => {
     setCurrentView(view);
@@ -41,6 +53,12 @@ const App: React.FC = () => {
         return <CheckoutView item={selectedItem} onBack={() => navigateTo('home')} />;
       case 'login':
         return <LoginView onBack={() => navigateTo('home')} />;
+      case 'dashboard':
+        if (!session) {
+          // Should not happen due to useEffect, but as a fallback
+          return <LoginView onBack={() => navigateTo('home')} />;
+        }
+        return <DashboardView onBack={() => navigateTo('home')} />;
       default:
         return (
           <>
@@ -85,5 +103,11 @@ const App: React.FC = () => {
     </div>
   );
 };
+
+const App: React.FC = () => (
+  <SessionContextProvider>
+    <AppContent />
+  </SessionContextProvider>
+);
 
 export default App;

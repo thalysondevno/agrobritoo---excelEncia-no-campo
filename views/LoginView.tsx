@@ -1,10 +1,28 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect } from 'react';
+import { Auth } from '@supabase/auth-ui-react';
+import { ThemeSupa } from '@supabase/auth-ui-shared';
+import { supabase } from '../integrations/supabase/client';
+import { useSession } from '../components/SessionContextProvider';
+import { ViewState } from '../App'; // Importar ViewState
 
 interface LoginViewProps {
   onBack: () => void;
 }
 
 const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
+  const { session } = useSession();
+
+  useEffect(() => {
+    if (session) {
+      // Redirecionar para o dashboard se já estiver autenticado
+      // onBack() aqui pode ser ajustado para navegar para o dashboard
+      // Por enquanto, vamos apenas voltar para a home, e o App.tsx vai redirecionar para o dashboard
+      onBack(); 
+    }
+  }, [session, onBack]);
+
   return (
     <div className="min-h-screen pt-32 pb-20 px-6 flex items-center justify-center bg-bg-dark">
       <div className="max-w-md w-full">
@@ -24,36 +42,68 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
         </div>
 
         <div className="glass p-10 rounded-[2.5rem] border border-border-dark shadow-2xl space-y-6">
-          <div className="space-y-2">
-            <label className="text-xs font-bold uppercase tracking-widest text-text-muted">E-mail</label>
-            <input type="email" className="w-full bg-white/5 border border-border-dark rounded-xl px-5 py-4 text-white outline-none focus:border-primary transition-all" placeholder="aluno@agro.com" />
-          </div>
-          
-          <div className="space-y-2">
-            <div className="flex justify-between">
-              <label className="text-xs font-bold uppercase tracking-widest text-text-muted">Senha</label>
-              <button className="text-primary text-[10px] font-bold uppercase tracking-widest hover:underline">Esqueci a senha</button>
-            </div>
-            <input type="password" className="w-full bg-white/5 border border-border-dark rounded-xl px-5 py-4 text-white outline-none focus:border-primary transition-all" placeholder="••••••••" />
-          </div>
-
-          <button className="w-full py-5 bg-primary text-bg-dark font-black rounded-xl hover:bg-secondary transition-all shadow-lg shadow-primary/20">
-            Acessar Plataforma
-          </button>
-
-          <div className="relative py-4">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-white/5"></div>
-            </div>
-            <div className="relative flex justify-center text-xs uppercase font-bold tracking-widest">
-              <span className="bg-card-dark px-4 text-white/20">ou</span>
-            </div>
-          </div>
-
-          <button className="w-full py-4 glass border-white/10 text-white font-bold rounded-xl hover:bg-white/5 transition-all flex items-center justify-center gap-3">
-            <img src="https://www.google.com/favicon.ico" className="w-4 h-4" alt="Google" />
-            Continuar com Google
-          </button>
+          <Auth
+            supabaseClient={supabase}
+            providers={[]} // Array vazio para desabilitar provedores de terceiros como o Google
+            appearance={{
+              theme: ThemeSupa,
+              variables: {
+                default: {
+                  colors: {
+                    brand: '#46ec13', // Cor primária do seu tema
+                    brandAccent: '#8fff6b', // Cor de destaque
+                    inputBackground: '#1e271c', // Cor de fundo dos inputs
+                    inputBorder: '#2c3928', // Cor da borda dos inputs
+                    inputPlaceholder: '#a3b99d', // Cor do placeholder
+                    inputText: '#ffffff', // Cor do texto
+                    messageBackground: '#1e271c', // Cor de fundo das mensagens
+                    messageText: '#ffffff', // Cor do texto das mensagens
+                    messageAction: '#46ec13', // Cor da ação da mensagem
+                    dividerBackground: '#2c3928', // Cor do divisor
+                    anchorTextColor: '#46ec13', // Cor do link
+                    anchorTextHoverColor: '#8fff6b', // Cor do link ao passar o mouse
+                  },
+                },
+              },
+            }}
+            theme="dark" // Usar tema escuro para combinar com o design
+            localization={{
+              variables: {
+                sign_in: {
+                  email_label: 'Seu e-mail',
+                  password_label: 'Sua senha',
+                  email_input_placeholder: 'aluno@agro.com',
+                  password_input_placeholder: '••••••••',
+                  button_label: 'Acessar Plataforma',
+                  link_text: 'Já tem uma conta? Faça login',
+                },
+                sign_up: {
+                  email_label: 'Seu e-mail',
+                  password_label: 'Crie uma senha',
+                  email_input_placeholder: 'aluno@agro.com',
+                  password_input_placeholder: '••••••••',
+                  button_label: 'Criar Conta',
+                  link_text: 'Não tem uma conta? Crie uma',
+                },
+                forgotten_password: {
+                  email_label: 'Seu e-mail',
+                  password_reset_button_label: 'Enviar link de recuperação',
+                  link_text: 'Esqueceu sua senha?',
+                  email_input_placeholder: 'aluno@agro.com',
+                },
+                update_password: {
+                  password_label: 'Nova senha',
+                  password_input_placeholder: '••••••••',
+                  button_label: 'Atualizar senha',
+                },
+                magic_link: {
+                  email_input_placeholder: 'aluno@agro.com',
+                  button_label: 'Enviar link mágico',
+                  link_text: 'Enviar um link mágico por e-mail',
+                },
+              },
+            }}
+          />
         </div>
 
         <p className="text-center mt-8 text-sm text-text-muted">
