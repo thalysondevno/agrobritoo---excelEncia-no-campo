@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ViewState } from '../App';
 
@@ -39,15 +38,16 @@ const Header: React.FC<HeaderProps> = ({ scrolled, setView, currentView }) => {
     <header className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${scrolled || currentView !== 'home' ? 'bg-bg-dark/80 backdrop-blur-lg border-b border-border-dark py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <div 
-          className="flex items-center gap-2 group cursor-pointer"
+        <button 
+          className="flex items-center group cursor-pointer"
           onClick={() => handleNav('home')}
         >
-          <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-bg-dark transition-all duration-300">
-            <span className="material-symbols-outlined !text-2xl">spa</span>
-          </div>
-          <span className="text-white text-2xl font-black tracking-tighter">Agrobritoo</span>
-        </div>
+          <img 
+            src="https://firebasestorage.googleapis.com/v0/b/excel-insights-n8l3f.firebasestorage.app/o/869x191_branca.png?alt=media&token=443414b4-b7fd-45d6-a441-82d27224ff76" 
+            alt="Agrobritoo Logo" 
+            className="h-8 w-auto" 
+          />
+        </button>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">

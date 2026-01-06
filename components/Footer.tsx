@@ -11,11 +11,12 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-20">
           <div className="md:col-span-2 space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary/20 rounded-md flex items-center justify-center text-primary">
-                <span className="material-symbols-outlined !text-xl">spa</span>
-              </div>
-              <span className="text-white text-xl font-black tracking-tighter">Agrobritoo</span>
+            <div className="flex items-center">
+              <img 
+                src="https://firebasestorage.googleapis.com/v0/b/excel-insights-n8l3f.firebasestorage.app/o/869x191_branca.png?alt=media&token=443414b4-b7fd-45d6-a441-82d27224ff76" 
+                alt="Agrobritoo Logo" 
+                className="h-8 w-auto" 
+              />
             </div>
             <p className="text-text-muted max-w-sm leading-relaxed">
               AgroBritoo – Educação que gera resultado no campo. Conteúdos técnicos, cursos online, treinamentos e materiais educacionais voltados à CIÊNCIA E PRÁTICA ANIMAL e medicina veterinária, produção animal e gestão no agronegócio.

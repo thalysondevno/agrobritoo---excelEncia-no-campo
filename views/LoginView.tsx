@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface LoginViewProps {
@@ -10,12 +9,16 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
     <div className="min-h-screen pt-32 pb-20 px-6 flex items-center justify-center bg-bg-dark">
       <div className="max-w-md w-full">
         <div className="text-center mb-10">
-          <div 
+          <button 
             onClick={onBack}
-            className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center text-primary mx-auto mb-6 cursor-pointer hover:bg-primary hover:text-bg-dark transition-all"
+            className="mx-auto mb-6 cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <span className="material-symbols-outlined !text-3xl">spa</span>
-          </div>
+            <img 
+              src="https://firebasestorage.googleapis.com/v0/b/excel-insights-n8l3f.firebasestorage.app/o/869x191_branca.png?alt=media&token=443414b4-b7fd-45d6-a441-82d27224ff76" 
+              alt="Agrobritoo Logo" 
+              className="h-16 w-auto" 
+            />
+          </button>
           <h1 className="text-3xl font-black text-white">Área do Aluno</h1>
           <p className="text-text-muted">Acesse seus treinamentos e materiais exclusivos.</p>
         </div>
