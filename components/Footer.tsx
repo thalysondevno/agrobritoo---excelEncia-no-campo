@@ -34,8 +34,8 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
           <div className="space-y-6">
             <h4 className="text-white font-bold uppercase text-xs tracking-widest">Navegação</h4>
             <ul className="space-y-4">
-              <li><button onClick={() => setView('blogList')} className="text-text-muted hover:text-primary transition-colors text-sm">Blog</button></li> {/* Link para o blog */}
-              <li><button onClick={() => setView('home')} className="text-text-muted hover:text-primary transition-colors text-sm">Cursos</button></li>
+              <li><button onClick={() => setView('blogList')} className="text-text-muted hover:text-primary transition-colors text-sm">Blog</button></li>
+              <li><button onClick={() => setView('coursesList')} className="text-text-muted hover:text-primary transition-colors text-sm">Cursos</button></li> {/* Navega para a nova página de cursos */}
               <li><button onClick={() => setView('home')} className="text-text-muted hover:text-primary transition-colors text-sm">Ebooks</button></li>
               <li><button onClick={() => setView('home')} className="text-text-muted hover:text-primary transition-colors text-sm">Sobre Nós</button></li>
             </ul>

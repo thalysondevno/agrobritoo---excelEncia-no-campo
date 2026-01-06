@@ -14,9 +14,10 @@ import CreateBlogView from './src/views/CreateBlogView';
 import CreateCourseView from './src/views/CreateCourseView';
 import BlogListView from './src/views/BlogListView';
 import BlogPostView from './src/views/BlogPostView';
+import CoursesListView from './src/views/CoursesListView'; // Importar CoursesListView
 import { SessionContextProvider, useSession } from './src/components/SessionContextProvider';
 
-export type ViewState = 'home' | 'mentorship' | 'checkout' | 'login' | 'dashboard' | 'createBlog' | 'createCourse' | 'blogList' | 'blogPost';
+export type ViewState = 'home' | 'mentorship' | 'checkout' | 'login' | 'dashboard' | 'createBlog' | 'createCourse' | 'blogList' | 'blogPost' | 'coursesList'; // Adicionar coursesList
 
 const AppContent: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -78,6 +79,8 @@ const AppContent: React.FC = () => {
           return <BlogListView onBack={() => navigateTo('home')} navigateToBlogPost={(id) => navigateTo('blogPost', undefined, id)} />;
         }
         return <BlogPostView blogId={selectedBlogId} onBack={() => navigateTo('blogList')} />;
+      case 'coursesList': // Novo caso para a lista de cursos
+        return <CoursesListView onBack={() => navigateTo('home')} navigateToCheckout={(item) => navigateTo('checkout', item)} />;
       default:
         return (
           <>

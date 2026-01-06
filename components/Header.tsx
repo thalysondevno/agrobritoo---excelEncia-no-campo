@@ -47,8 +47,8 @@ const Header: React.FC<HeaderProps> = ({ scrolled, setView, currentView }) => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
           <button onClick={() => handleNav('home')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Início</button>
-          <button onClick={() => handleScrollNav('cursos')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Cursos</button>
-          <button onClick={() => handleNav('blogList')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Blog</button> {/* Novo link para o blog */}
+          <button onClick={() => handleNav('coursesList')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Cursos</button> {/* Navega para a nova página de cursos */}
+          <button onClick={() => handleNav('blogList')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Blog</button>
           <button onClick={() => handleScrollNav('sobre')} className="text-white/80 hover:text-primary font-medium text-sm transition-colors">Sobre</button>
           <button 
             onClick={() => handleNav('login')}
@@ -72,8 +72,8 @@ const Header: React.FC<HeaderProps> = ({ scrolled, setView, currentView }) => {
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 bg-bg-dark z-50 flex flex-col items-center justify-center gap-8 transition-transform duration-500 md:hidden ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <button onClick={() => handleNav('home')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Início</button>
-        <button onClick={() => handleScrollNav('cursos')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Cursos</button>
-        <button onClick={() => handleNav('blogList')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Blog</button> {/* Novo link para o blog */}
+        <button onClick={() => handleNav('coursesList')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Cursos</button> {/* Navega para a nova página de cursos */}
+        <button onClick={() => handleNav('blogList')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Blog</button>
         <button onClick={() => handleScrollNav('sobre')} className="text-white text-3xl font-bold hover:text-primary transition-colors">Sobre</button>
         <button 
           onClick={() => handleNav('login')}
