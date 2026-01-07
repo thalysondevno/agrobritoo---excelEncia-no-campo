@@ -15,6 +15,7 @@ interface Course {
   image_url?: string;
   price: number;
   tag?: string; // Para compatibilidade com o componente Solutions
+  payment_link?: string; // Adicionado o link de pagamento
 }
 
 const CoursesListView: React.FC<CoursesListViewProps> = ({ onBack, navigateToCheckout }) => {
@@ -27,7 +28,7 @@ const CoursesListView: React.FC<CoursesListViewProps> = ({ onBack, navigateToChe
       setLoading(true);
       const { data, error } = await supabase
         .from('courses')
-        .select('id, title, description, image_url, price')
+        .select('id, title, description, image_url, price, payment_link') // Buscar payment_link
         .eq('published', true)
         .order('created_at', { ascending: false });
 
@@ -47,6 +48,14 @@ const CoursesListView: React.FC<CoursesListViewProps> = ({ onBack, navigateToChe
 
     fetchCourses();
   }, []);
+
+  const handleCourseAction = (item: Course) => {
+    if (item.payment_link) {
+      window.open(item.payment_link, '_blank'); // Abrir link de pagamento em nova aba
+    } else {
+      navigateToCheckout(item); // Fallback para o comportamento original se não houver link de pagamento
+    }
+  };
 
   if (loading) {
     return (
@@ -116,7 +125,7 @@ const CoursesListView: React.FC<CoursesListViewProps> = ({ onBack, navigateToChe
                   <div className="space-y-4">
                     <div className="h-[1px] bg-border-dark w-full" />
                     <button 
-                      onClick={() => navigateToCheckout(item)}
+                      onClick={() => handleCourseAction(item)}
                       className="w-full py-4 rounded-2xl bg-primary text-bg-dark font-black hover:bg-secondary transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-lg shadow-primary/10"
                     >
                       Ver Detalhes

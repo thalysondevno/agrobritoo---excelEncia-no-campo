@@ -14,10 +14,10 @@ import CreateBlogView from './src/views/CreateBlogView';
 import CreateCourseView from './src/views/CreateCourseView';
 import BlogListView from './src/views/BlogListView';
 import BlogPostView from './src/views/BlogPostView';
-import CoursesListView from './src/views/CoursesListView'; // Importar CoursesListView
+import CoursesListView from './src/views/CoursesListView';
 import { SessionContextProvider, useSession } from './src/components/SessionContextProvider';
 
-export type ViewState = 'home' | 'mentorship' | 'checkout' | 'login' | 'dashboard' | 'createBlog' | 'createCourse' | 'blogList' | 'blogPost' | 'coursesList'; // Adicionar coursesList
+export type ViewState = 'home' | 'mentorship' | 'checkout' | 'login' | 'dashboard' | 'createBlog' | 'createCourse' | 'blogList' | 'blogPost' | 'coursesList';
 
 const AppContent: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -54,6 +54,7 @@ const AppContent: React.FC = () => {
       case 'mentorship':
         return <MentorshipView onBack={() => navigateTo('home')} />;
       case 'checkout':
+        // CheckoutView ainda pode ser usado para outros itens, mas não para cursos com payment_link
         return <CheckoutView item={selectedItem} onBack={() => navigateTo('home')} />;
       case 'login':
         return <LoginView onBack={() => navigateTo('home')} />;
@@ -79,7 +80,9 @@ const AppContent: React.FC = () => {
           return <BlogListView onBack={() => navigateTo('home')} navigateToBlogPost={(id) => navigateTo('blogPost', undefined, id)} />;
         }
         return <BlogPostView blogId={selectedBlogId} onBack={() => navigateTo('blogList')} />;
-      case 'coursesList': // Novo caso para a lista de cursos
+      case 'coursesList':
+        // A função handleCourseAction em CoursesListView já lida com o redirecionamento
+        // ou com o fallback para navigateToCheckout, então passamos a função diretamente.
         return <CoursesListView onBack={() => navigateTo('home')} navigateToCheckout={(item) => navigateTo('checkout', item)} />;
       default:
         return (
@@ -96,6 +99,7 @@ const AppContent: React.FC = () => {
             </section>
             
             <section id="cursos">
+              {/* Solutions agora lida com o redirecionamento direto para o payment_link */}
               <Solutions onSelect={(item) => navigateTo('checkout', item)} />
             </section>
             

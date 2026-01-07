@@ -16,6 +16,7 @@ const CreateCourseView: React.FC<CreateCourseViewProps> = ({ onBack }) => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [paymentLink, setPaymentLink] = useState(''); // Novo estado para o link de pagamento
   const [published, setPublished] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
@@ -38,6 +39,7 @@ const CreateCourseView: React.FC<CreateCourseViewProps> = ({ onBack }) => {
           description,
           price: parseFloat(price),
           image_url: imageUrl,
+          payment_link: paymentLink, // Incluir o link de pagamento
           published,
           instructor_id: user.id,
         },
@@ -51,6 +53,7 @@ const CreateCourseView: React.FC<CreateCourseViewProps> = ({ onBack }) => {
       setDescription('');
       setPrice('');
       setImageUrl('');
+      setPaymentLink(''); // Limpar o campo
       setPublished(false);
     }
     setLoading(false);
@@ -122,6 +125,17 @@ const CreateCourseView: React.FC<CreateCourseViewProps> = ({ onBack }) => {
                 onChange={(e) => setImageUrl(e.target.value)}
                 className="w-full bg-white/5 border border-border-dark rounded-xl px-5 py-3 text-white focus:border-primary outline-none transition-all" 
                 placeholder="https://exemplo.com/imagem-curso.jpg" 
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="paymentLink" className="text-xs font-bold uppercase tracking-widest text-text-muted">Link de Pagamento</label>
+              <input 
+                id="paymentLink"
+                type="url" 
+                value={paymentLink}
+                onChange={(e) => setPaymentLink(e.target.value)}
+                className="w-full bg-white/5 border border-border-dark rounded-xl px-5 py-3 text-white focus:border-primary outline-none transition-all" 
+                placeholder="https://linkdepagamento.com/seu-curso" 
               />
             </div>
             <div className="flex items-center gap-3">

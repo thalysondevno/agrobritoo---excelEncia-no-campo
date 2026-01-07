@@ -8,6 +8,7 @@ interface Course {
   image_url?: string;
   tag?: string; // Adicionado para compatibilidade com o design existente
   price: number;
+  payment_link?: string; // Adicionado o link de pagamento
 }
 
 interface SolutionsProps {
@@ -24,7 +25,7 @@ const Solutions: React.FC<SolutionsProps> = ({ onSelect }) => {
       setLoading(true);
       const { data, error } = await supabase
         .from('courses')
-        .select('id, title, description, image_url, price')
+        .select('id, title, description, image_url, price, payment_link') // Buscar payment_link
         .eq('published', true)
         .order('created_at', { ascending: false });
 
@@ -36,7 +37,7 @@ const Solutions: React.FC<SolutionsProps> = ({ onSelect }) => {
         const formattedCourses = (data || []).map(course => ({
           ...course,
           tag: 'Online', // Exemplo de tag padrão
-          price: `R$ ${course.price.toFixed(2).replace('.', ',')}`, // Formatar preço
+          price: course.price, // Manter como número para o checkout ou redirecionamento
         }));
         setCourses(formattedCourses as Course[]);
       }
@@ -45,6 +46,14 @@ const Solutions: React.FC<SolutionsProps> = ({ onSelect }) => {
 
     fetchCourses();
   }, []);
+
+  const handleCourseSelect = (item: Course) => {
+    if (item.payment_link) {
+      window.open(item.payment_link, '_blank'); // Abrir link de pagamento em nova aba
+    } else {
+      onSelect(item); // Fallback para o comportamento original se não houver link de pagamento
+    }
+  };
 
   if (loading) {
     return (
@@ -109,12 +118,12 @@ const Solutions: React.FC<SolutionsProps> = ({ onSelect }) => {
                   </p>
                   <div className="mb-6">
                     <span className="text-white/40 text-xs uppercase font-bold tracking-widest">Investimento</span>
-                    <div className="text-2xl font-black text-white">{item.price}</div>
+                    <div className="text-2xl font-black text-white">R$ {item.price.toFixed(2).replace('.', ',')}</div>
                   </div>
                   <div className="space-y-4">
                     <div className="h-[1px] bg-border-dark w-full" />
                     <button 
-                      onClick={() => onSelect(item)}
+                      onClick={() => handleCourseSelect(item)}
                       className="w-full py-4 rounded-2xl bg-primary text-bg-dark font-black hover:bg-secondary transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-lg shadow-primary/10"
                     >
                       Ver Detalhes
