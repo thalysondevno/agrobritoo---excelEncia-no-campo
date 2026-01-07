@@ -65,27 +65,8 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
             }}
             theme="dark"
             view="sign_in"
-            showLinks={false}
-            localization={{
-              variables: {
-                sign_in: {
-                  email_label: 'Seu e-mail',
-                  password_label: 'Sua senha',
-                  email_input_placeholder: 'aluno@agro.com',
-                  password_input_placeholder: '••••••••',
-                  button_label: 'Acessar Plataforma',
-                },
-                update_password: {
-                  password_label: 'Nova senha',
-                  password_input_placeholder: '••••••••',
-                  button_label: 'Atualizar senha',
-                },
-                magic_link: {
-                  email_input_placeholder: 'aluno@agro.com',
-                  button_label: 'Enviar link mágico',
-                },
-              },
-            }}
+            // showLinks={false} // Removido temporariamente para depuração
+            // localization={{ ... }} // Removido temporariamente para depuração
           />
         </div>
       </div>
