@@ -65,7 +65,7 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
             }}
             theme="dark"
             view="sign_in"
-            showLinks={false} {/* Adicionado para remover os links */}
+            showLinks={false}
             localization={{
               variables: {
                 sign_in: {
@@ -74,18 +74,15 @@ const LoginView: React.FC<LoginViewProps> = ({ onBack }) => {
                   email_input_placeholder: 'aluno@agro.com',
                   password_input_placeholder: '••••••••',
                   button_label: 'Acessar Plataforma',
-                  // link_text removido
                 },
                 update_password: {
                   password_label: 'Nova senha',
                   password_input_placeholder: '••••••••',
                   button_label: 'Atualizar senha',
-                  // link_text removido
                 },
                 magic_link: {
                   email_input_placeholder: 'aluno@agro.com',
                   button_label: 'Enviar link mágico',
-                  // link_text removido
                 },
               },
             }}
